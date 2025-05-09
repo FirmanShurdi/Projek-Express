@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body>
+    <!-- Include Navbar -->
+    <%- include('partials/navbar') %>
+    <% if (success) { %>
+      <div class="success"><%= success %></div>
+    <% } %>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <!-- penghilang msg -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const alertBox = document.querySelector('.success');
+        if (alertBox) {
+          setTimeout(() => {
+            alertBox.style.opacity = '0';
+            setTimeout(() => alertBox.remove(), 500);
+          }, 3000);
+        }
+      });
+    </script>
+     <%- include('partials/footer') %>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+/*biar gampang ngerubah warnanya*/
+:root { 
+  --primary-color: #4a90e2;
+  --primary-hover: #357ab8;
+  --success-color: #006600;
+  --error-color: #dc232c;
+  --background-color: #f0f2f5;
+  --white: #ffffff;
+  --text-color: #333;
+  --muted-color: #555;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Card container */
+.form-card {
+  background: var(--white);
+  width: 360px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Heading */
+.form-card h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--muted-color);
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Button */
+.form-card button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.form-card button:hover {
+  background: var(--primary-hover);
+}
+
+/* Alerts */
+.alert, .success {
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.alert {
+  background: #ffe5e5;
+  color: var(--error-color);
+}
+
+.success {
+  background: #e5ffe5;
+  color: var(--success-color);
+}
+
+/* Footer links */
+.footer {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--muted-color);
+}
+
+.footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

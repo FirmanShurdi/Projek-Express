@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/stylesheets/logres.css" />
+  </head>
+  <body>
+    <div class="form-card">
+      <h2>Login</h2>
+
+      <% if (success) { %>
+        <div class="success"><%= success %></div>
+      <% } %>
+
+      <% if (error) { %>
+        <div class="alert"><%= error %></div>
+      <% } %>
+
+      <form action="/login" method="POST">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            required
+            oninvalid="this.setCustomValidity('Emailnya belum kamu isi loh!!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            required
+            oninvalid="this.setCustomValidity('Passwordnya belum kamu isi loh!!')"
+            oninput="this.setCustomValidity('')"
+          />
+        </div>
+
+        <button type="submit">Masuk</button>
+      </form>
+
+      <p>Belum punya akun? <a href="/register">Daftar</a></p>
+    </div>
+  </body>
+</html>

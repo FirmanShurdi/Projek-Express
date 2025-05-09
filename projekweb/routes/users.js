@@ -62,7 +62,14 @@ router.get('/edit/:id', (req, res) => {
 router.post('/update/:id', (req, res) => {
   const id = req.params.id;
   const { username, password, email, role } = req.body;
-  const data = { username, password, email, role };
+
+  // Siapkan field yang akan diperbarui
+  const data = { username, email, role };
+
+  // Jika password tidak kosong, tambahkan ke data
+  if (password && password.trim() !== '') {
+    data.password = password;
+  }
 
   connection.query('UPDATE users SET ? WHERE id = ?', [data, id], (err) => {
     if (err) {
@@ -73,6 +80,7 @@ router.post('/update/:id', (req, res) => {
     res.redirect('/users');
   });
 });
+
 
 // Hapus user
 router.get('/delete/:id', (req, res) => {

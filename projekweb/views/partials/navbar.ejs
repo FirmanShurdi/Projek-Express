@@ -11,13 +11,22 @@
   <!-- Tombol hamburger -->
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
+  <!-- NAV LINKS dan SEARCH BAR masuk ke sini semua -->
   <div class="nav-links">
     <a href="/">Home</a>
-    <a href="/hewan">hewan</a>
-    <a href="/buah">buah</a>
+    <a href="/objek?kategori=hewan">hewan</a>
+    <a href="/objek?kategori=buah">buah</a>
     <% if (session && session.role === 'admin') { %>
       <a href="/master">master</a>
     <% } %>
+
+    <!-- Search form DIPINDAH KE SINI -->
+    <form action="/search" method="GET" class="search-form">
+      <input type="text" name="q" placeholder="Search..." required />
+      <button type="submit">
+        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search" />
+      </button>
+    </form>
   </div>
 
   <% if (session && session.isLoggedIn) { %>
@@ -56,10 +65,10 @@
   .logo {
     display: flex;
     align-items: center;
-    background-color: #e0e0e0;
+    background-color: #fffefe;
     padding: 6px 10px;
     border-radius: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
   }
 
   .logo img {
@@ -94,8 +103,10 @@
 
   .nav-links {
     display: flex;
+    align-items: center;
     gap: 20px;
     margin-left: 40px;
+    flex-wrap: wrap;
   }
 
   .nav-links a,
@@ -142,23 +153,49 @@
     font-weight: bold;
   }
 
-  .success {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 6px;
-    margin: 10px auto;
-    border: 8px solid #c3e6cb;
-    border-radius: 4px;
-    text-align: center;
-    width: 80%;
-    max-width: 300px;
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
-    opacity: 1;
-    transition: opacity 0.5s ease-out;
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 999px;
+    padding: 8px 12px;
+    gap: 10px;
+
+  }
+
+  .search-form input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+  }
+
+  .search-form input::placeholder {
+    color: #aaa;
+  }
+
+  .search-form button {
+    background-color: #28a7f5;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form button:hover {
+    background-color: #1a92db;
+  }
+
+  .search-form button img {
+    width: 18px;
+    height: 18px;
   }
 
   @media (max-width: 768px) {
@@ -178,6 +215,19 @@
       display: flex;
     }
 
+    .nav-links a,
+    .search-form,
+    .login-link a,
+    .logout-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .search-form {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+
     .auth-section,
     .login-link {
       width: 100%;
@@ -185,12 +235,39 @@
       margin-top: 10px;
     }
 
-    .nav-links a,
-    .login-link a,
-    .logout-btn {
-      width: 100%;
-      justify-content: center;
+    .search-form input {
+      width: 70%;
     }
+
+    .search-form button {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .search-form {
+      max-width: 300px;
+    }
+  }
+
+  .success {
+    background-color: #c3e6cb;
+    color: #000000;
+    padding: 6px;
+    margin: 10px auto;
+    border: 8px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
   }
 </style>
 

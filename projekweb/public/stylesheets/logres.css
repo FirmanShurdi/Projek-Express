@@ -1,8 +1,7 @@
-/*biar gampang ngerubah warnanya*/
-:root { 
+:root {
   --primary-color: #4a90e2;
   --primary-hover: #357ab8;
-  --success-color: #006600;
+  --success-color: #5fa5e1;
   --error-color: #dc232c;
   --background-color: #f0f2f5;
   --white: #ffffff;
@@ -25,24 +24,40 @@ body {
   height: 100vh;
 }
 
-/* Card container */
-.form-card {
-  background: var(--white);
-  width: 360px;
-  padding: 2rem;
-  border-radius: 10px;
+/* Container utama */
+.container {
+  background-color: var(--white);
+  border-radius: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  display: flex;
+  transition: all 0.6s ease-in-out;
+}
+
+/* Form container */
+.form-container {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.6s ease-in-out;
+  z-index: 2;
+  background-color: var(--white);
+}
+
+.form-container h2 {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  font-size: 1.8rem;
   text-align: center;
 }
 
-/* Heading */
-.form-card h2 {
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  font-size: 1.5rem;
-}
-
-/* Input group */
+/* Input */
 .input-group {
   margin-bottom: 1.2rem;
   text-align: left;
@@ -69,8 +84,8 @@ body {
   outline: none;
 }
 
-/* Button */
-.form-card button {
+/* Tombol */
+.form-container button {
   width: 100%;
   padding: 0.75rem;
   background: var(--primary-color);
@@ -82,12 +97,13 @@ body {
   transition: background 0.2s;
 }
 
-.form-card button:hover {
+.form-container button:hover {
   background: var(--primary-hover);
 }
 
 /* Alerts */
-.alert, .success {
+.alert,
+.success {
   padding: 0.75rem;
   border-radius: 4px;
   margin-bottom: 1rem;
@@ -105,18 +121,96 @@ body {
   color: var(--success-color);
 }
 
-/* Footer links */
-.footer {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  color: var(--muted-color);
+/* Toggle panel (kanan) */
+.toggle-container {
+  flex: 1;
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  transition: all 0.6s ease-in-out;
 }
 
-.footer a {
-  color: var(--primary-color);
-  text-decoration: none;
+.toggle-panel {
+  text-align: center;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.toggle-panel h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
 }
+
+.toggle-panel p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+/* Kotak glow melingkar dan border animasi */
+.glow-box {
+  position: relative;
+  padding: 2rem;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  z-index: 1;
+
+}
+
+.glow-box h1,
+.glow-box p {
+  position: relative;
+  color: white;
+  z-index: 2;
+}
+
+.animated-border {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: conic-gradient(
+    from 0deg,
+    #ffffff,
+    #4a90e2,
+    #357ab8,
+    #ffffff,
+    #4a90e2,
+    #357ab8,
+    #ffffff
+  );
+  animation: spin-border 4s linear infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+}
+
+@keyframes spin-border {
+  0% {
+    transform: rotate(0turn);
+  }
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeSlideIn 0.8s ease-out;
+}
+
+

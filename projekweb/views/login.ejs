@@ -1,50 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <title>Login</title>
     <link rel="stylesheet" href="/stylesheets/logres.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
+
   <body>
-    <div class="form-card">
-      <h2>Login</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-in animate-in">
+        <form action="/login" method="POST">
+          <h2>Login</h2>
 
-      <% if (success) { %>
-        <div class="success"><%= success %></div>
-      <% } %>
+          <% if (success) { %>
+            <div class="success"><%= success %></div>
+          <% } %>
 
-      <% if (error) { %>
-        <div class="alert"><%= error %></div>
-      <% } %>
+          <% if (error) { %>
+            <div class="alert"><%= error %></div>
+          <% } %>
 
-      <form action="/login" method="POST">
-        <div class="input-group">
-          <label for="email">Email</label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            required
-            oninvalid="this.setCustomValidity('Emailnya belum kamu isi loh!!')"
-            oninput="this.setCustomValidity('')"
-          />
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              required
+              oninvalid="this.setCustomValidity('Emailnya belum kamu isi loh!!')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              required
+              oninvalid="this.setCustomValidity('Passwordnya belum kamu isi loh!!')"
+              oninput="this.setCustomValidity('')"
+            />
+          </div>
+
+          <button type="submit">Masuk</button>
+          <p>Belum punya akun? <a href="/register">Daftar</a></p>
+        </form>
+      </div>
+
+      <div class="toggle-container">
+        <div class="glow-box">
+          <h1 id="typing-text"></h1>
+          <p id="fade-text">Silakan masuk dengan email dan password kamu</p>
+          <div class="animated-border">
+            </div>
+          </div>
         </div>
-
-        <div class="input-group">
-          <label for="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            required
-            oninvalid="this.setCustomValidity('Passwordnya belum kamu isi loh!!')"
-            oninput="this.setCustomValidity('')"
-          />
         </div>
-
-        <button type="submit">Masuk</button>
-      </form>
-
-      <p>Belum punya akun? <a href="/register">Daftar</a></p>
+      </div>
     </div>
+    <script src="/javascripts/logres.js"></script>
   </body>
 </html>

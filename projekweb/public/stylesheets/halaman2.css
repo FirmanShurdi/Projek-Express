@@ -1,0 +1,260 @@
+/* General Reset & Container */
+
+
+.container {
+max-width: 1024px;
+margin: 0 auto;
+padding: 1.5rem 1rem;
+}
+
+.overflow-x-auto {
+overflow-x: auto;
+}
+
+.space-x-4 > * + * {
+margin-left: 1rem;
+}
+
+.space-y-4 > * + * {
+margin-top: 1rem;
+}
+
+/* Shared Card Styles */
+.card {
+background-color: rgb(107, 224, 222);
+border-radius: 0.5rem;
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+cursor: pointer;
+}
+
+.card:hover {
+transform: scale(1.05);
+}
+
+/* Kategori Carousel Card */
+.kategori-card {
+min-width: 200px;
+padding: 0.5rem;
+}
+
+/* Objek Card */
+.objek-card {
+display: flex;
+align-items: flex-start;
+padding: 1rem;
+border-radius: 0.75rem;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.objek-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.objek-img {
+width: 96px;
+height: 96px;
+object-fit: cover;
+border-radius: 0.5rem;
+margin-right: 1rem;
+flex-shrink: 0;
+}
+
+.objek-info {
+flex: 1;
+}
+
+.objek-nama {
+font-size: 1.125rem;
+font-weight: bold;
+color: #1f2937;
+margin-bottom: 0.25rem;
+}
+
+.objek-kategori {
+font-size: 0.875rem;
+color: #6b7280;
+font-style: italic;
+margin-bottom: 0.5rem;
+}
+
+.objek-deskripsi {
+font-size: 0.9375rem;
+color: #374151;
+}
+
+.objek-link {
+font-size: 0.9375rem;
+color: #2563eb;
+margin-left: 0.25rem;
+text-decoration: none;
+}
+
+.objek-link:hover {
+text-decoration: underline;
+}
+
+/* Carousel */
+.carousel-wrapper {
+background-color: #f0f4f8;
+padding: 25px;
+border-radius: 12px;
+margin-top: 25px;
+position: relative;
+overflow: hidden;
+margin: 33px auto 15px auto;
+animation: fadeInUp 0.7s ease;
+margin-bottom: 15px;
+max-width: 1200px;  /* Batas maksimal lebar carousel */
+width: 95%;         /* Supaya responsive */
+
+}
+
+.carousel-title {
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 1rem;
+color: #1f2937;
+}
+
+.carousel-container {
+display: flex;
+overflow-x: auto;
+gap: 1rem;
+scroll-behavior: smooth;
+padding-bottom: 10px;
+}
+
+.carousel-container::-webkit-scrollbar {
+display: none;
+}
+
+.carousel-item {
+flex: 0 0 auto;
+width: 240px;
+border-radius: 10px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+text-decoration: none;
+color: inherit;
+overflow: hidden;
+animation: fadeIn 0.6s ease;
+background: white;
+transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+}
+
+.carousel-item:hover {
+transform: translateY(-3px);
+box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15)
+}
+
+.carousel-image-wrapper {
+overflow: hidden;
+height: 140px;
+}
+
+.carousel-img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.carousel-item:hover .carousel-img {
+transform: scale(1.05);
+}
+
+.carousel-content {
+padding: 12px 15px;
+}
+
+.carousel-heading {
+font-size: 18px;
+font-weight: 600;
+margin-bottom: 4px;
+color: #111827;
+}
+
+.carousel-meta {
+font-size: 13px;
+color: #6b7280;
+font-style: italic;
+margin-bottom: 5px;
+}
+
+.carousel-description {
+font-size: 13px;
+color: #374151;
+margin-bottom: 8px;
+}
+
+.carousel-link {
+font-size: 13px;
+color: #2563eb;
+text-decoration: underline;
+}
+
+/* Carousel buttons */
+.carousel-button {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255, 255, 255, 0.8);
+border: none;
+border-radius: 50%;
+font-size: 18px;
+width: 36px;
+height: 36px;
+cursor: pointer;
+display: none;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+z-index: 10;
+}
+
+.carousel-left {
+left: 10px;
+}
+
+.carousel-right {
+right: 10px;
+}
+
+.carousel-wrapper:hover .carousel-button {
+display: block;
+}
+
+/* Animations */
+.animate-card {
+opacity: 0;
+transform: translateY(10px);
+animation: fadeSlideIn 0.6s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@keyframes fadeIn {
+from {
+opacity: 0;
+transform: scale(0.97);
+}
+to {
+opacity: 1;
+transform: scale(1);
+}
+}

@@ -4,7 +4,7 @@ const connection = require('../db');
 
 // Menampilkan daftar users
 router.get('/', (req, res) => {
-  connection.query('SELECT * FROM users ORDER BY id DESC', (err, rows) => {
+  connection.query('SELECT * FROM users ORDER BY id ASC', (err, rows) => {
     if (err) {
       console.log('Error:', err); // Tambahkan baris ini
       req.flash('error', 'Gagal mengambil data: ' + err.message);
@@ -62,11 +62,7 @@ router.get('/edit/:id', (req, res) => {
 router.post('/update/:id', (req, res) => {
   const id = req.params.id;
   const { username, password, email, role } = req.body;
-
-  // Siapkan field yang akan diperbarui
   const data = { username, email, role };
-
-  // Jika password tidak kosong, tambahkan ke data
   if (password && password.trim() !== '') {
     data.password = password;
   }

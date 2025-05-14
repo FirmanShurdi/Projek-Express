@@ -1,157 +1,234 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('/images/utama/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .marquee-container {
-    width: 40%;
-    overflow: hidden;
-    white-space: nowrap;
-    background-color: #ffffffc1;
-    color: #212529;
-    padding: 5px 0;
-    position: relative;
-    margin-top: 10px;
-    border-radius: 10px;
-    margin-left: 20px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  width: 40%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #ffffffc1;
+  color: #212529;
+  padding: 5px 0;
+  position: relative;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
 }
 
 .marquee-text {
-    display: inline-block;
-    padding-left: 100%;
-    animation: marquee 15s linear infinite;
-    font-weight: bold;
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 15s linear infinite;
+  font-weight: bold;
 }
 
 @keyframes marquee {
-    0% {
-        transform: translateX(0%);
-    }
+  0% {
+    transform: translateX(0%);
+  }
 
-    100% {
-        transform: translateX(-100%);
-    }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .hero-section {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 30px;
-    background: linear-gradient(to right, #dfdedd, #ffffff);
-    animation: fadeIn 1.2s ease;
-    border-radius: 12px;
-    margin: 20px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 30px;
+  background: linear-gradient(to right, #dfdedd, #ffffff);
+  animation: fadeIn 1.2s ease;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content {
-    flex: 1 1 400px;
-    max-width: 600px;
-    padding: 20px;
+  flex: 1 1 400px;
+  max-width: 600px;
+  padding: 20px;
 }
 
 .hero-content small {
-    font-size: 16px;
-    color: #a83232;
-    font-weight: 600;
-    text-transform: uppercase;
+  font-size: 16px;
+  color: #a83232;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .hero-content h1 {
-    font-size: 36px;
-    margin: 10px 0;
-    color: #221c1c;
+  font-size: 36px;
+  margin: 10px 0;
+  color: #221c1c;
 }
 
 .hero-content p {
-    font-size: 16px;
-    color: #3a2f2f;
-    line-height: 1.6;
+  font-size: 16px;
+  color: #3a2f2f;
+  line-height: 1.6;
 }
 
 .cta-buttons {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .cta-buttons .btn {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    text-decoration: none;
-    margin-right: 12px;
-    transition: 0.3s ease;
-    display: inline-block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  margin-right: 12px;
+  transition: 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary {
-    background-color: #e63946;
-    color: #fff;
+  background-color: #e63946;
+  color: #fff;
 }
 
 .btn-primary:hover {
-    background-color: #ba2d35;
+  background-color: #ba2d35;
 }
 
 .btn-secondary {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
 }
 
 .btn-secondary:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .hero-image {
-    flex: 1 1 300px;
-    max-width: 500px;
-    padding: 20px;
-    transform: rotate(8deg);
-    /* miringkan gambar */
-    animation: slideIn 1s ease;
+  flex: 1 1 300px;
+  max-width: 500px;
+  padding: 20px;
+  transform: rotate(8deg);
+  animation: slideIn 1s ease;
 }
 
 .hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(40px);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-    }
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .hero-content h1 {
-        font-size: 28px;
-    }
+  .hero-content h1 {
+    font-size: 28px;
+  }
 
-    .hero-image {
-        transform: rotate(-5deg);
-    }
+  .hero-image {
+    transform: rotate(-5deg);
+  }
 }
+
+/* Tambahan panjang konten */
+.info-section {
+  padding: 60px 30px;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.info-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c2c2c;
+}
+
+.info-section p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature-item {
+  background: #ffffffcc;
+  flex: 1 1 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #e63946;
+}
+
+.feature-item p {
+  font-size: 14px;
+  color: #333;
+}
+.success {
+    background-color: #c3e6cb;
+    color: #000000;
+    padding: 6px;
+    margin: 10px auto;
+    border: 8px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    margin-top: 20px;
+  }

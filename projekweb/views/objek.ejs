@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
   <meta charset="UTF-8">
@@ -22,15 +23,13 @@
           Kategori: <%= objek.nama_kategori || 'Tidak diketahui' %>
         </p>
         <p class="objek-deskripsi">
-          <%= objek.deskripsi?.substring(0, 70) %>...
+          <%= objek.deskripsi?.substring(0, 40) %>...
           <a href="/objek/<%= objek.id %>" class="objek-link">selengkapnya</a>
         </p>
       </div>
     </div>
   <% }) %>
 </div>
-
-
 
 <div class="carousel-wrapper">
   <h2 class="carousel-title">Mungkin Anda Tertarik?</h2>
@@ -44,16 +43,16 @@
           <h3 class="carousel-heading"><%= objek.nama %></h3>
           <p class="carousel-meta">Kategori: <%= objek.nama_kategori || 'Tidak diketahui' %></p>
           <p class="carousel-description">
-            <%= objek.deskripsi?.substring(0, 30) %>...
+            <%= objek.deskripsi?.substring(0, 29) %> <span class="carousel-link">Selengkapnya...</span>
           </p>
-          <span class="carousel-link">Selengkapnya</span>
+          
         </div>
       </a>
     <% }) %>
   </div>
 
-  <button onclick="scrollCarousel(-1)" class="carousel-button carousel-left">←</button>
-  <button onclick="scrollCarousel(1)" class="carousel-button carousel-right">→</button>
+<button onclick="scrollCarousel(-1)" class="carousel-button carousel-left">←</button> <button onclick="scrollCarousel(1)" class="carousel-button carousel-right">→</button>
+
 </div>
 
 <script>
@@ -63,6 +62,7 @@
     carousel.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
   }
 </script>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.animate-card');
@@ -72,12 +72,9 @@
   });
 </script>
 
-
-
   </div>
 
-  <%- include('partials/footer') %>
-
+<%- include('partials/footer') %>
 
 </body>
 </html>

@@ -8,33 +8,63 @@
     <%- include('partials/navbar') %> <% if (success) { %>
     <div class="success"><%= success %></div>
     <% } %>
+  
     <div class="marquee-container">
       <div class="marquee-text">
-        Welcome to Madura Pride, tempat para king mulet, dan jamet bersatu padu
-        menjadi satu !
+        Selamat datang di Madura Pride, tempat di mana keberagaman fauna
+        bertemu dalam harmoni yang penuh warna!
       </div>
     </div>
+
     <section class="hero-section">
       <div class="hero-content">
-        <small>Selamat datang di Meduro</small>
-        <h1>Selamat Datang di Meduro Pride</h1>
+        <small>Eksplorasi Dunia Fauna</small>
+        <h1>Selamat Datang di Dunia Fauna Madura Pride</h1>
         <p>
-          Selama lebih dari 90 generasi, kami percaya bahwa
-          <strong>manusia mulet dan jamet</strong> dapat hidup berbahagia
-          bersama. Mari kita mulai petualanganmu!
+          Dari dunia hewan langka hingga yang terlupakan, kami memperkenalkan
+          beragam spesies yang ada di Madura dan sekitarnya. Bergabunglah dalam
+          perjalanan ini untuk lebih mengenal fauna yang ada.
         </p>
         <div class="cta-buttons">
-          <a href="/objek?kategori=hewan" class="btn btn-primary">Hewan</a>
-          <a href="/objek?kategori=buah" class="btn btn-secondary">Buah</a>
+          <a href="/objek?kategori=hewan" class="btn btn-primary">Eksplorasi Hewan</a>
+          <a href="/objek?kategori=buah" class="btn btn-secondary">Eksplorasi Buah</a>
         </div>
       </div>
       <div class="hero-image">
-        <img src="/images/utama/madura.jpg" alt="Hewan Bahagia" />
+        <img src="/images/utama/fauna.png" alt="Fauna" />
       </div>
     </section>
+
+    <section class="info-section">
+      <h2>Fauna Madura yang Menakjubkan</h2>
+      <p>
+        Madura kaya akan fauna unik yang menjadi bagian dari ekosistem penting.
+        Di sini, kamu dapat menemukan beragam hewan yang menambah warna keanekaragaman hayati.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <h3>Hewan Langka</h3>
+          <p>Temui hewan langka yang hanya ditemukan di Madura.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Keanekaragaman Spesies</h3>
+          <p>Jelajahi beragam spesies hewan yang hidup harmonis di alam Madura.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Konservasi Alam</h3>
+          <p>Mendukung pelestarian fauna untuk generasi mendatang.</p>
+        </div>
+        <div class="feature-item">
+          <h3>Habitat Alami</h3>
+          <p>Habitat alami yang masih terjaga dengan baik di Madura dan sekitarnya.</p>
+        </div>
+      </div>
+    </section>
+
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
-    <!-- penghilang msg -->
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const alertBox = document.querySelector(".success");
@@ -45,8 +75,7 @@
           }, 3000);
         }
       });
-    </script>
-    <script>
+
       window.addEventListener("DOMContentLoaded", () => {
         const section = document.querySelector(".hero-section");
         section.style.opacity = 0;
@@ -59,6 +88,7 @@
       });
     </script>
 
-    <%- include('partials/footer') %>
+
+    <%- include('partials/footer') %> <!-- Footer partial -->
   </body>
 </html>

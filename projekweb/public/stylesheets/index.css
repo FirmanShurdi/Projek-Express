@@ -39,7 +39,10 @@ body {
     transform: translateX(-100%);
   }
 }
-
+.hol{
+  margin-left: 20px;
+  color:rgb(255, 66, 66);
+}
 .hero-section {
   display: flex;
   flex-wrap: wrap;
@@ -230,5 +233,5 @@ body {
     z-index: 999;
     opacity: 1;
     transition: opacity 0.5s ease-out;
-    margin-top: 20px;
+    margin-top: 70px;
   }

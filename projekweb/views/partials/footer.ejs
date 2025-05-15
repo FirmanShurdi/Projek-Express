@@ -1,57 +1,58 @@
 <!-- Tambahkan ini di <head> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 
 <!-- Footer -->
-<footer style="background: linear-gradient(to right, #1e2f23, #2e4735); color: #d9f5dd; padding: 40px 60px; font-family: 'Segoe UI', sans-serif;">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px;">
+<footer class="footer-container">
+  <div class="footer-content">
     
     <!-- Logo dan Deskripsi -->
-    <div style="flex: 1; min-width: 200px;">
-      <a href="/" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-        <img src="https://i.im.ge/2024/10/13/k6iPsr.logo.png" alt="Meduro Logo" style="width: 60px;">
-        <h2 style="margin: 0; color: #fff;">Meduro Fauna</h2>
+    <div class="footer-brand-section">
+      <a href="/" class="logo-link">
+        <img src="/images/utama/logo1.jpg" alt="Meduro Logo" class="footer-logo">
+        <h2 class="footer-brand cinzel-font">Meduro Fauna</h2>
       </a>
-      <p style="margin-top: 12px; font-size: 14px;">Platform kebanggaan satwa lokal dan eksotik nusantara. Satwa adalah warisan budaya kita!</p>
+      <p class="footer-desc">Platform kebanggaan satwa lokal dan eksotik nusantara. Satwa adalah warisan budaya kita!</p>
     </div>
 
     <!-- Navigasi Cepat -->
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="margin-bottom: 10px;">Navigasi</h3>
-      <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
-        <li><a href="/objek?kategori=hewan" style="color: #b4efc3; text-decoration: none;">Hewan</a></li>
-        <li><a href="/objek?kategori=buah" style="color: #b4efc3; text-decoration: none;">Buah</a></li>
-        <li><a href="/tentang" style="color: #b4efc3; text-decoration: none;">Tentang Kami</a></li>
-        <li><a href="/kontak" style="color: #b4efc3; text-decoration: none;">Kontak</a></li>
+    <div class="footer-nav-section">
+      <h3 class="footer-title">Navigasi</h3>
+      <ul class="footer-nav">
+        <li><a href="/objek?kategori=hewan">Hewan</a></li>
+        <li><a href="/objek?kategori=buah">Buah</a></li>
+        <li><a href="/tentang">Tentang Kami</a></li>
+        <li><a href="/kontak">Kontak</a></li>
       </ul>
     </div>
 
     <!-- Ikuti Kami -->
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="margin-bottom: 10px;">Ikuti Kami</h3>
-      <div style="font-size: 22px; display: flex; gap: 16px;">
-        <a href="https://facebook.com" target="_blank" style="color: #a6ffd3;"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://instagram.com" target="_blank" style="color: #a6ffd3;"><i class="fab fa-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" style="color: #a6ffd3;"><i class="fab fa-youtube"></i></a>
-        <a href="https://wa.me" target="_blank" style="color: #a6ffd3;"><i class="fab fa-whatsapp"></i></a>
+    <div class="footer-social-section">
+      <h3 class="footer-title">Ikuti Kami</h3>
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://wa.me" target="_blank"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
 
     <!-- Kontak -->
-    <div style="flex: 1; min-width: 200px;">
-      <h3 style="margin-bottom: 10px;">Hubungi Kami</h3>
-      <p style="margin: 6px 0;">📍 Jl. Flora & Fauna No.1</p>
-      <p style="margin: 6px 0;">📞 031-68714</p>
-      <p style="margin: 6px 0;">✉️ info@medurofauna.id</p>
+    <div class="footer-contact-section">
+      <h3 class="footer-title">Hubungi Kami</h3>
+      <p>📍 Jl. Flora & Fauna No.1</p>
+      <p>📞 031-68714</p>
+      <p>✉️ info@medurofauna.id</p>
     </div>
 
   </div>
 
-  <div style="text-align: center; margin-top: 40px; font-size: 14px; color: #a0c8b1;">
+  <div class="footer-bottom">
     &copy; 2024 Meduro Fauna. Cinta satwa, cinta nusantara.
   </div>
 </footer>
 <style>
-.footer-container {
+  .footer-container {
   background: linear-gradient(to right, #1b2f1e, #2e4d39);
   padding: 40px 60px;
   font-family: 'Segoe UI', sans-serif;
@@ -64,11 +65,15 @@
   gap: 40px;
 }
 
-.footer-section {
+.footer-brand-section,
+.footer-nav-section,
+.footer-social-section,
+.footer-contact-section {
   flex: 1;
   min-width: 200px;
 }
 
+/* Brand / Logo */
 .logo-link {
   display: flex;
   align-items: center;
@@ -86,18 +91,25 @@
   color: #ffffff;
 }
 
+.cinzel-font {
+  font-family: 'Cinzel', serif;
+}
+
 .footer-desc {
-  margin-top: 12px;
+  margin-top: 0px;
   font-size: 14px;
   color: #bde7c7;
 }
 
+/* Judul section */
 .footer-title {
   font-size: 18px;
   margin-bottom: 10px;
   color: #e1ffee;
+  text-align: center;
 }
 
+/* Navigasi */
 .footer-nav {
   list-style: none;
   padding: 0;
@@ -106,6 +118,9 @@
 
 .footer-nav li {
   margin-bottom: 6px;
+  text-align: left;
+  margin-left: 92px;
+
 }
 
 .footer-nav a {
@@ -118,10 +133,13 @@
   color: #ffffff;
 }
 
+/* Sosial Media */
 .social-icons {
   display: flex;
+  justify-content: center;
   gap: 16px;
   font-size: 22px;
+  margin-top: 10px;
 }
 
 .social-icons a {
@@ -134,12 +152,16 @@
   transform: scale(1.2);
 }
 
-.footer-section p {
+/* Kontak */
+.footer-contact-section p {
   margin: 6px 0;
   font-size: 14px;
   color: #c5e7d2;
+  text-align: left;
+  margin-left: 63px;
 }
 
+/* Bawah Footer */
 .footer-bottom {
   text-align: center;
   margin-top: 40px;
@@ -155,9 +177,25 @@
     text-align: center;
   }
 
-  .footer-section {
+  .footer-brand-section,
+  .footer-nav-section,
+  .footer-social-section,
+  .footer-contact-section {
     margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .footer-nav li,
+  .footer-contact-section p {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .logo-link {
+    justify-content: center;
   }
 }
+
+
 
 </style>

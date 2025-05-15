@@ -1,0 +1,438 @@
+warning: in the working copy of 'projekweb/public/stylesheets/logres.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'projekweb/views/index.ejs', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/projekweb/public/stylesheets/halaman2.css b/projekweb/public/stylesheets/halaman2.css[m
+[1mindex 6eebcbe..a15c2cd 100644[m
+[1m--- a/projekweb/public/stylesheets/halaman2.css[m
+[1m+++ b/projekweb/public/stylesheets/halaman2.css[m
+[36m@@ -1,5 +1,11 @@[m
+ /* General Reset & Container */[m
+[31m-[m
+[32m+[m[32mbody {[m
+[32m+[m[32m    background-image: url('/images/utama/background.jpg'); /* Perhatikan path */[m
+[32m+[m[32m    background-size: cover;[m
+[32m+[m[32m    background-position: center;[m
+[32m+[m[32m    background-repeat: no-repeat;[m
+[32m+[m[32m    background-attachment: fixed;[m
+[32m+[m[32m}[m
+ [m
+ .container {[m
+ max-width: 1024px;[m
+[36m@@ -20,16 +26,11 @@[m [mmargin-top: 1rem;[m
+ }[m
+ [m
+ /* Shared Card Styles */[m
+[31m-.card {[m
+[31m-background-color: rgb(107, 224, 222);[m
+[31m-border-radius: 0.5rem;[m
+[31m-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);[m
+[31m-transition: transform 0.3s ease, box-shadow 0.3s ease;[m
+[31m-cursor: pointer;[m
+[31m-}[m
+[32m+[m
+ [m
+ .card:hover {[m
+ transform: scale(1.05);[m
+[32m+[m
+ }[m
+ [m
+ /* Kategori Carousel Card */[m
+[36m@@ -44,12 +45,12 @@[m [mdisplay: flex;[m
+ align-items: flex-start;[m
+ padding: 1rem;[m
+ border-radius: 0.75rem;[m
+[31m-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);[m
+[32m+[m[32mbox-shadow: 0 2px 10px rgba(255, 255, 255, 0.06);[m
+ }[m
+ [m
+ .objek-card:hover {[m
+[31m-transform: translateY(-4px);[m
+[31m-box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);[m
+[32m+[m[32mtransform: translateY(-2px);[m
+[32m+[m[32mbox-shadow: 0 6px 16px rgba(255, 255, 255, 0.594);[m
+ }[m
+ [m
+ .objek-img {[m
+[36m@@ -68,20 +69,20 @@[m [mflex: 1;[m
+ .objek-nama {[m
+ font-size: 1.125rem;[m
+ font-weight: bold;[m
+[31m-color: #1f2937;[m
+[32m+[m[32mcolor: #ffffffd6;[m
+ margin-bottom: 0.25rem;[m
+ }[m
+ [m
+ .objek-kategori {[m
+ font-size: 0.875rem;[m
+[31m-color: #6b7280;[m
+[32m+[m[32mcolor: #ffffffd6;[m
+ font-style: italic;[m
+ margin-bottom: 0.5rem;[m
+ }[m
+ [m
+ .objek-deskripsi {[m
+ font-size: 0.9375rem;[m
+[31m-color: #374151;[m
+[32m+[m[32mcolor: #ffffffd6;[m
+ }[m
+ [m
+ .objek-link {[m
+[36m@@ -191,7 +192,7 @@[m [mmargin-bottom: 8px;[m
+ .carousel-link {[m
+ font-size: 13px;[m
+ color: #2563eb;[m
+[31m-text-decoration: underline;[m
+[32m+[m[32mtext-decoration: none;[m
+ }[m
+ [m
+ /* Carousel buttons */[m
+[36m@@ -223,7 +224,6 @@[m [mright: 10px;[m
+ display: block;[m
+ }[m
+ [m
+[31m-/* Animations */[m
+ .animate-card {[m
+ opacity: 0;[m
+ transform: translateY(10px);[m
+[1mdiff --git a/projekweb/public/stylesheets/index.css b/projekweb/public/stylesheets/index.css[m
+[1mindex 1c3d6ec..a023590 100644[m
+[1m--- a/projekweb/public/stylesheets/index.css[m
+[1m+++ b/projekweb/public/stylesheets/index.css[m
+[36m@@ -1,3 +1,15 @@[m
+[32m+[m[32mbody {[m
+[32m+[m[32m    background-image: url('/images/utama/background.jpg');[m
+[32m+[m[32m    background-size: cover;[m
+[32m+[m[32m    background-position: center;[m
+[32m+[m[32m    background-repeat: no-repeat;[m
+[32m+[m[32m    background-attachment: fixed;[m
+[32m+[m[32m}[m
+[32m+[m[32m.hol {[m
+[32m+[m[32m    color:#ffffff;[m
+[32m+[m[32m    margin-left: 30px;[m
+[32m+[m[32m    margin-bottom: 20px;[m
+[32m+[m[32m}[m
+ .marquee-container {[m
+     width: 40%;[m
+     overflow: hidden;[m
+[1mdiff --git a/projekweb/public/stylesheets/logres.css b/projekweb/public/stylesheets/logres.css[m
+[1mindex a520f62..14d2989 100644[m
+[1m--- a/projekweb/public/stylesheets/logres.css[m
+[1m+++ b/projekweb/public/stylesheets/logres.css[m
+[36m@@ -3,7 +3,6 @@[m
+   --primary-hover: #357ab8;[m
+   --success-color: #5fa5e1;[m
+   --error-color: #dc232c;[m
+[31m-  --background-color: #f0f2f5;[m
+   --white: #ffffff;[m
+   --text-color: #333;[m
+   --muted-color: #555;[m
+[36m@@ -17,11 +16,16 @@[m
+ }[m
+ [m
+ body {[m
+[31m-  background: var(--background-color);[m
+[32m+[m[32m  background-image: url('/images/utama/background.jpg');[m
+[32m+[m[32m  background-size: cover;[m
+[32m+[m[32m  background-position: center;[m
+[32m+[m[32m  background-repeat: no-repeat;[m
+[32m+[m[32m  background-attachment: fixed;[m
+   display: flex;[m
+   justify-content: center;[m
+   align-items: center;[m
+   height: 100vh;[m
+[32m+[m
+ }[m
+ [m
+ /* Container utama */[m
+[1mdiff --git a/projekweb/routes/logres.js b/projekweb/routes/logres.js[m
+[1mindex 85754d6..275d873 100644[m
+[1m--- a/projekweb/routes/logres.js[m
+[1m+++ b/projekweb/routes/logres.js[m
+[36m@@ -2,7 +2,6 @@[m [mconst express = require('express');[m
+ const router = express.Router();[m
+ const db = require('../db');[m
+ [m
+[31m-// Fungsi validasi email[m
+ function isValidEmail(email) {[m
+   const regex = /^[^\s@]+@gmail\.com$/;[m
+   return regex.test(email);[m
+[1mdiff --git a/projekweb/views/index.ejs b/projekweb/views/index.ejs[m
+[1mindex f9cc431..37ecab2 100644[m
+[1m--- a/projekweb/views/index.ejs[m
+[1m+++ b/projekweb/views/index.ejs[m
+[36m@@ -3,9 +3,12 @@[m
+   <head>[m
+     <title><%= title %></title>[m
+     <link rel="stylesheet" href="/stylesheets/index.css" />[m
+[32m+[m[32m    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">[m
+[32m+[m
+   </head>[m
+   <body>[m
+[31m-    <%- include('partials/navbar') %> <% if (success) { %>[m
+[32m+[m[32m    <%- include('partials/navbar') %>[m[41m [m
+[32m+[m[32m    <% if (success) { %>[m
+     <div class="success"><%= success %></div>[m
+     <% } %>[m
+     <div class="marquee-container">[m
+[36m@@ -32,8 +35,10 @@[m
+         <img src="/images/utama/madura.jpg" alt="Hewan Bahagia" />[m
+       </div>[m
+     </section>[m
+[32m+[m[32m    <div class="hol">[m
+     <h1><%= title %></h1>[m
+     <p>Welcome to <%= title %></p>[m
+[32m+[m[32m    </div>[m
+     <!-- penghilang msg -->[m
+     <script>[m
+       document.addEventListener("DOMContentLoaded", () => {[m
+[1mdiff --git a/projekweb/views/objek.ejs b/projekweb/views/objek.ejs[m
+[1mindex bdb5217..4443a0e 100644[m
+[1m--- a/projekweb/views/objek.ejs[m
+[1m+++ b/projekweb/views/objek.ejs[m
+[36m@@ -6,7 +6,7 @@[m
+   <title>Halaman Objek</title>[m
+   <link rel="stylesheet" href="/stylesheets/halaman2.css">[m
+ </head>[m
+[31m-<body class="bg-gray-50 text-gray-800">[m
+[32m+[m[32m<body>[m
+   <%- include('partials/navbar') %>[m
+ <div class="container objek-list">[m
+   <% objekList.forEach(objek => { %>[m
+[36m@@ -22,8 +22,8 @@[m
+           Kategori: <%= objek.nama_kategori || 'Tidak diketahui' %>[m
+         </p>[m
+         <p class="objek-deskripsi">[m
+[31m-          <%= objek.deskripsi?.substring(0, 70) %>...[m
+[31m-          <a href="/objek/<%= objek.id %>" class="objek-link">selengkapnya</a>[m
+[32m+[m[32m          <%= objek.deskripsi?.substring(0, 70) %>[m
+[32m+[m[32m          <a href="/objek/<%= objek.id %>" class="objek-link">selengkapnya..</a>[m
+         </p>[m
+       </div>[m
+     </div>[m
+[36m@@ -44,9 +44,9 @@[m
+           <h3 class="carousel-heading"><%= objek.nama %></h3>[m
+           <p class="carousel-meta">Kategori: <%= objek.nama_kategori || 'Tidak diketahui' %></p>[m
+           <p class="carousel-description">[m
+[31m-            <%= objek.deskripsi?.substring(0, 30) %>...[m
+[32m+[m[32m            <%= objek.deskripsi?.substring(0, 30) %> <span class="carousel-link">Selengkapnya...</span>[m
+           </p>[m
+[31m-          <span class="carousel-link">Selengkapnya</span>[m
+[32m+[m[41m          [m
+         </div>[m
+       </a>[m
+     <% }) %>[m
+[1mdiff --git a/projekweb/views/partials/footer.ejs b/projekweb/views/partials/footer.ejs[m
+[1mindex befbb9e..b91bdc3 100644[m
+[1m--- a/projekweb/views/partials/footer.ejs[m
+[1m+++ b/projekweb/views/partials/footer.ejs[m
+[36m@@ -1,9 +1,9 @@[m
+ <div class="footer-container">[m
+     <div class="footer-logo-section">[m
+         <a href="/" class="footer-logo-link">[m
+[31m-            <img src="https://i.im.ge/2024/10/13/k6iPsr.logo.png" alt="meduro" class="footer-logo-img">[m
+[32m+[m[32m            <img src="/images/utama/logo1.jpg" alt="meduro" class="footer-logo-img">[m
+         </a>[m
+[31m-        <p class="footer-brand-name">Meduro</p>[m
+[32m+[m[32m        <p class="footer-brand-name"><strong>Meduro</strong></p>[m
+     </div>[m
+     <div class="footer-info-section">[m
+         <div class="footer-follow-us">[m
+[36m@@ -40,7 +40,7 @@[m
+     justify-content: flex-start;[m
+     align-items: center;[m
+     padding: 18px;[m
+[31m-    background: linear-gradient(to right, #f0f0f0, #dcdcdc);[m
+[32m+[m[32m    background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));[m
+     font-family: Arial, sans-serif;[m
+     border-radius: 10px;[m
+ }[m
+[36m@@ -51,14 +51,15 @@[m
+ }[m
+ [m
+ .footer-logo-img {[m
+[31m-    width: 200px;[m
+[32m+[m[32m    width: 150px;[m
+     height: auto;[m
+[32m+[m[32m    margin-left: 30px;[m
+ }[m
+ [m
+ .footer-brand-name {[m
+     font-size: 16px;[m
+     font-weight: bold;[m
+[31m-    color: #333;[m
+[32m+[m[32m    color: #ffffff;[m
+     margin-inline: 70px;[m
+ }[m
+ [m
+[36m@@ -82,7 +83,7 @@[m
+ [m
+ .footer-title {[m
+     font-size: 24px;[m
+[31m-    color: #333;[m
+[32m+[m[32m    color: #ffffff;[m
+ }[m
+ [m
+ .footer-social-links {[m
+[36m@@ -97,9 +98,10 @@[m
+     width: 55px;[m
+     height: 55px;[m
+     border-radius: 50%;[m
+[31m-    background-color: #fff;[m
+[31m-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);[m
+[32m+[m[32m    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);[m
+[32m+[m[32m    border: 1px solid #8e8080;[m
+     transition: transform 0.3s;[m
+[32m+[m[41m    [m
+ }[m
+ [m
+ .footer-social-icon:hover {[m
+[36m@@ -111,11 +113,12 @@[m
+     width: 65%;[m
+     height: 65%;[m
+     object-fit: contain;[m
+[32m+[m[32m    filter: drop-shadow(0 1px 4px white);[m[41m [m
+ }[m
+ [m
+ .footer-contact-text {[m
+     font-size: 16px;[m
+[31m-    color: #666;[m
+[32m+[m[32m    color: #ffffff;[m
+     line-height: 1.6;[m
+ }[m
+ [m
+[36m@@ -134,6 +137,8 @@[m
+ [m
+     .footer-logo-img {[m
+         width: 150px;[m
+[32m+[m[32m        margin-right: 27px;[m
+[32m+[m
+     }[m
+ [m
+     .footer-brand-name {[m
+[36m@@ -166,24 +171,5 @@[m
+     }[m
+ }[m
+ [m
+[31m-/* Media query untuk layar lebih kecil (maksimal lebar 480px) */[m
+[31m-@media (max-width: 480px) {[m
+[31m-    .footer-container {[m
+[31m-        padding: 5px;[m
+[31m-    }[m
+[31m-[m
+[31m-    .footer-logo-img {[m
+[31m-        width: 120px;[m
+[31m-    }[m
+[31m-[m
+[31m-    .footer-social-icon {[m
+[31m-        width: 35px;[m
+[31m-        height: 35px;[m
+[31m-    }[m
+[31m-[m
+[31m-    .footer-social-icon img {[m
+[31m-        width: 50%;[m
+[31m-    }[m
+[31m-}[m
+ [m
+ </style>[m
+[1mdiff --git a/projekweb/views/partials/navbar.ejs b/projekweb/views/partials/navbar.ejs[m
+[1mindex 42417c5..758becc 100644[m
+[1m--- a/projekweb/views/partials/navbar.ejs[m
+[1m+++ b/projekweb/views/partials/navbar.ejs[m
+[36m@@ -1,14 +1,12 @@[m
+ <div class="navbar">[m
+   <div class="logo">[m
+     <a href="/">[m
+[31m-      <img src="https://i.im.ge/2024/10/13/k6iPsr.logo.png" alt="PensNews" />[m
+[32m+[m[32m      <img src="/images/utama/logo1.jpg" alt="PensNews" />[m
+     </a>[m
+     <span class="brand-name">[m
+       <span class="pens">meduro</span><span class="news">pride</span>[m
+     </span>[m
+   </div>[m
+[31m-[m
+[31m-  <!-- Tombol hamburger -->[m
+   <button class="menu-toggle" onclick="toggleMenu()">☰</button>[m
+ [m
+   <!-- NAV LINKS dan SEARCH BAR masuk ke sini semua -->[m
+[36m@@ -57,7 +55,7 @@[m
+   .navbar {[m
+     display: flex;[m
+     align-items: center;[m
+[31m-    background-color: #6b5a5a;[m
+[32m+[m[32m    background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));[m
+     padding: 10px 20px;[m
+     flex-wrap: wrap;[m
+   }[m
+[36m@@ -65,10 +63,9 @@[m
+   .logo {[m
+     display: flex;[m
+     align-items: center;[m
+[31m-    background-color: #fffefe;[m
+[32m+[m[32m    background: linear-gradient( 50deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.9));[m
+     padding: 6px 10px;[m
+     border-radius: 20px;[m
+[31m-    border: 1px solid #000000;[m
+   }[m
+ [m
+   .logo img {[m
+[36m@@ -80,14 +77,17 @@[m
+   .brand-name {[m
+     display: flex;[m
+     align-items: center;[m
+[31m-    font-family: 'Abhaya Libre', sans-serif;[m
+[31m-    font-size: 24px;[m
+[32m+[m[32m    font-family: 'Cinzel', serif;[m
+[32m+[m[32m    font-size: 25px;[m
+     font-weight: bold;[m
+[32m+[m[32m    margin-bottom: 2px;[m
+   }[m
+ [m
+[31m-  .brand-name .pens,[m
+[32m+[m[32m  .brand-name .pens {[m
+[32m+[m[32m    color: rgba(222, 221, 221, 0.9)[m
+[32m+[m[32m  }[m
+   .brand-name .news {[m
+[31m-    color: rgb(169, 64, 64);[m
+[32m+[m[32m    color: rgba(100, 96, 96, 0.9);[m
+     margin-left: 3px;[m
+   }[m
+ [m
+[36m@@ -112,22 +112,23 @@[m
+   .nav-links a,[m
+   .login-link a,[m
+   .logout-btn {[m
+[31m-    color: #f2f2f2;[m
+[32m+[m[32m    color: #ffffff;[m
+     text-decoration: none;[m
+[31m-    background-color: #d1d1d1;[m
+[32m+[m[32m    background: linear-gradient(20deg, rgba(30, 30, 30, 0.9), rgba(107, 106, 106, 0.9));[m
+     padding: 10px 14px;[m
+     transition: 0.3s;[m
+     display: flex;[m
+     align-items: center;[m
+[31m-    border-radius: 4px;[m
+[32m+[m[32m    border-radius: 5px;[m
+     gap: 8px;[m
+[32m+[m[41m    [m
+   }[m
+ [m
+   .nav-links a:hover,[m
+   .login-link a:hover,[m
+   .logout-btn:hover {[m
+[31m-    background-color: #ddd;[m
+[31m-    color: black;[m
+[32m+[m[32m    background-color: #f6f4f4;[m
+[32m+[m[32m    color: #ffd900;[m
+     border-radius: 4px;[m
+   }[m
+ [m
+[36m@@ -202,7 +203,10 @@[m
+     .menu-toggle {[m
+       display: block;[m
+     }[m
+[32m+[m[32m    .logo img{[m
+[32m+[m[32m      margin-left: 83px;[m
+ [m
+[32m+[m[32m    }[m
+     .nav-links {[m
+       flex-direction: column;[m
+       width: 100%;[m

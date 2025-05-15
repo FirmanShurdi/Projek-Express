@@ -1,7 +1,7 @@
 <div class="navbar">
   <div class="logo">
     <a href="/">
-      <img src="https://i.im.ge/2024/10/13/k6iPsr.logo.png" alt="Meduro Logo" />
+      <img src="/images/utama/logo1.jpg" alt="Meduro Logo" />
     </a>
     <span class="brand-name">
       <span class="meduro">Meduro</span><span class="pride">Pride</span>
@@ -21,15 +21,16 @@
     <form action="/search" method="GET" class="search-form">
       <input type="text" name="q" placeholder="Search..." required />
       <button type="submit">
-        🔍
+        <img src="https://cdn-icons-png.flaticon.com/512/622/622669.png" alt="Search" />
       </button>
     </form>
   </div>
 
+
   <% if (session && session.isLoggedIn) { %>
     <div class="auth-section">
       <span class="username">Hi, <%= session.username %></span>
-      <a href="/logout" class="logout-btn">Logout ⎋</a>
+      <a href="/logout" class="logout-btn">Logout <img src="https://cdn-icons-png.flaticon.com/512/1828/1828479.png" alt="Logout Icon" /></a>
     </div>
   <% } else { %>
     <div class="login-link">
@@ -81,26 +82,29 @@
 }
 
 .brand-name {
-  font-size: 22px;
+  font-size: 27px;
   font-weight: bold;
   letter-spacing: 0.5px;
 }
 
 .brand-name .meduro {
   color: var(--light-green);
+  font-family:'Cinzel', serif;
 }
 
 .brand-name .pride {
   color: var(--text-light);
+   font-family:'Cinzel', serif;
 }
 
 .menu-toggle {
   display: none;
   background: none;
-  font-size: 28px;
+  font-size: 24px;
   color: var(--light-green);
   border: none;
   cursor: pointer;
+  margin-left: auto;
 }
 
 .nav-links {
@@ -108,10 +112,22 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-right: 10px;
 }
 
+.logout-btn {
+    color: var(--text-light);
+    text-decoration: none;
+    background-color: var(--primary-green);
+    padding: 10px 14px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    gap: 8px;
+    
+}
 .nav-links a,
-.logout-btn,
 .login-link a {
   color: var(--text-light);
   text-decoration: none;
@@ -128,39 +144,65 @@
   transform: scale(1.05);
 }
 
-.search-form {
-  display: flex;
-  align-items: center;
-  background-color: #2d4a3f;
-  border-radius: 20px;
-  padding: 6px 12px;
-  gap: 8px;
-}
+  .search-form {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 999px;
+    padding: 8px 12px;
+    gap: 10px;
 
-.search-form input {
-  background: transparent;
-  border: none;
-  color: var(--text-light);
-  outline: none;
-  width: 140px;
-}
+  }
 
-.search-form button {
-  background: none;
-  border: none;
-  font-size: 16px;
-  color: var(--light-green);
-  cursor: pointer;
-}
+  .search-form input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+  }
+
+  .search-form input::placeholder {
+    color: #aaa;
+  }
+
+  .search-form button {
+    background-color: #28a7f5;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form button:hover {
+    background-color: #1a92db;
+  }
+
+  .search-form button img {
+    width: 18px;
+    height: 18px;
+  }
+
 
 .auth-section {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
-
+  .login-link img,
+  .logout-btn img {
+    width: 20px;
+    height: 20px;
+  }
 .username {
   color: var(--text-muted);
+    font-weight: bold;
 }
 
 @media (max-width: 769px) {
@@ -168,15 +210,16 @@
       display: block;
     }
     .logo img{
-      margin-left: 160px;
+      margin-left: 115px;
 
     }
     .nav-links {
       flex-direction: column;
       width: 100%;
       display: none;
-      margin-left: 0;
+      margin-right: 30px;
       margin-top: 10px;
+
     }
 
     .nav-links.active {
@@ -189,17 +232,24 @@
     .logout-btn {
       width: 100%;
       justify-content: center;
+      text-align: center;;
     }
 
     .search-form {
       margin-left: 0;
-      margin-top: 10px;
+      margin-top: 5px;
+      margin-bottom:5px
     }
 
-    .auth-section,
     .login-link {
       width: 100%;
       justify-content: flex-end;
+      margin-top: 10px;
+      margin-left: 400px;
+    }
+    .auth-section,
+    .logout-btn {
+      width: 100%;
       margin-top: 10px;
     }
 
@@ -212,7 +262,7 @@
       height: 32px;
     }
   }
-
+  
 
 </style>
 

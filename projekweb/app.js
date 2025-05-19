@@ -6,12 +6,15 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var flash = require('connect-flash');
+var app = express();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users')
 var logresRouter = require('./routes/logres').router;
 var masterRouter = require('./routes/master');
 var objekRouter = require('./routes/objek');
+var detailRouter = require('./routes/detail');
+var kategoriRouter = require('./routes/kategori');
 var app = express();
 
 // view engine setup
@@ -41,6 +44,9 @@ app.use('/users', usersRouter);
 app.use('/', logresRouter);
 app.use('/master', masterRouter);
 app.use('/objek', objekRouter);
+app.use('/detail', detailRouter);
+app.use('/kategori', kategoriRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

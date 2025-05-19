@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Objek - <%= objek.nama %></title>
+  <link rel="stylesheet" href="/stylesheets/detail.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-elegan text-elegan">
+
+  <%- include('partials/navbar') %>
+
+  <div class="container detail-objek">
+    <h1 class="judul-objek"><%= objek.nama %></h1>
+    <p class="kategori">Kategori: <%= objek.nama_kategori %></p>
+
+    <% if (objek.gambar) { %>
+      <img src="/images/objek/<%= objek.gambar %>" alt="<%= objek.nama %>" class="detail-gambar">
+    <% } %>
+
+    <div class="detail-deskripsi mt-4">
+      <h2>Deskripsi</h2>
+      <p><%= objek.deskripsi %></p>
+    </div>
+
+    <% if (objek.audio) { %>
+      <div class="detail-audio mt-4">
+        <h2>Audio</h2>
+        <audio controls>
+          <source src="/audio/<%= objek.audio %>" type="audio/mpeg">
+          Browser Anda tidak mendukung elemen audio.
+        </audio>
+      </div>
+    <% } %>
+
+    <div class="mt-6">
+      <a href="/objek?kategori=<%= objek.nama_kategori %>" class="btn-kembali">⏎ Kembali ke daftar objek</a>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

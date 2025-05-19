@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Objek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+  <h1 class="mb-4">Edit Objek</h1>
+
+  <form method="POST" action="/kategori/edit/<%= objek.id %>">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama Objek</label>
+      <input type="text" name="nama" id="nama" class="form-control" value="<%= objek.nama %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="kategori_id" class="form-label">Kategori</label>
+      <select name="kategori_id" id="kategori_id" class="form-select" required>
+        <% kategori.forEach(k => { %>
+          <option value="<%= k.id %>" <%= k.id === objek.kategori_id ? 'selected' : '' %>>
+            <%= k.nama_kategori %>
+          </option>
+        <% }) %>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="deskripsi" class="form-label">Deskripsi</label>
+      <textarea name="deskripsi" id="deskripsi" class="form-control" rows="3" required><%= objek.deskripsi %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="gambar" class="form-label">Nama File Gambar</label>
+      <input type="text" name="gambar" id="gambar" class="form-control" value="<%= objek.gambar %>">
+      <div class="form-text">Contoh: <code>trenggiling.jpg</code> (simpan di folder <code>public/images/utama</code>)</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="audio" class="form-label">Nama File Audio</label>
+      <input type="text" name="audio" id="audio" class="form-control" value="<%= objek.audio %>">
+      <div class="form-text">Contoh: <code>suara.mp3</code> (simpan di folder <code>public/audio</code>)</div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Simpan Perubahan</button>
+    <a href="/kategori" class="btn btn-secondary">Batal</a>
+  </form>
+
+</body>
+</html>

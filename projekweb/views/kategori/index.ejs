@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Data Objek</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+
+  <h1 class="mb-4">Daftar Objek</h1>
+  <a href="/kategori/create" class="btn btn-primary mb-3">Tambah Objek</a>
+
+  <table class="table table-bordered">
+    <thead class="table-light">
+      <tr>
+        <th>Nama</th>
+        <th>Kategori</th>
+        <th>Deskripsi</th>
+        <th>Gambar</th>
+        <th>Audio</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% objek.forEach((o) => { %>
+        <tr>
+          <td><%= o.nama %></td>
+          <td><%= o.nama_kategori %></td>
+          <td><%= o.deskripsi %></td>
+          <td>
+            <% if (o.gambar) { %>
+              <img src="/images/utama/<%= o.gambar %>" width="100">
+            <% } %>
+          </td>
+          <td>
+            <% if (o.audio) { %>
+              <audio controls src="/audio/<%= o.audio %>"></audio>
+            <% } %>
+          </td>
+          <td>
+            <a href="/kategori/edit/<%= o.id %>" class="btn btn-warning btn-sm">Edit</a>
+            <a href="/kategori/delete/<%= o.id %>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?');">Hapus</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <a href="/master" class="btn btn-secondary">⏎Kembali</a>
+
+</body>
+</html>

@@ -24,18 +24,23 @@
         </p>
         <p class="objek-deskripsi">
           <%= objek.deskripsi?.substring(0, 40) %>...
-          <a href="/objek/<%= objek.id %>" class="objek-link">selengkapnya</a>
+          <a href="/detail/<%= objek.id %>" class="objek-link">selengkapnya</a>
         </p>
       </div>
     </div>
   <% }) %>
+</div>
+<div class="tampilkan-semua-wrapper">
+  <a href="/objek?kategori=<%= kategoriAktif %>&all=true" class="tampilkan-semua-btn" title="Tampilkan Semua">
+    ➤
+  </a>
 </div>
 
 <div class="carousel-wrapper">
   <h2 class="carousel-title">Mungkin Anda Tertarik?</h2>
   <div class="carousel-container" id="objek-carousel">
     <% carouselItems.forEach(objek => { %>
-      <a href="/objek/<%= objek.id %>" class="carousel-item">
+      <a href="/detail/<%= objek.id %>" class="carousel-item">
         <div class="carousel-image-wrapper">
           <img src="/images/objek/<%= objek.gambar %>" alt="<%= objek.nama %>" class="carousel-img">
         </div>
@@ -53,8 +58,8 @@
 
 <button onclick="scrollCarousel(-1)" class="carousel-button carousel-left">←</button> <button onclick="scrollCarousel(1)" class="carousel-button carousel-right">→</button>
 
+  </div>
 </div>
-
 <script>
   function scrollCarousel(dir) {
     const carousel = document.getElementById('objek-carousel');
@@ -71,8 +76,42 @@
     });
   });
 </script>
-
-  </div>
+<script>
+  document.getElementById('tampilkanSemuaBtn').addEventListener('click', () => {
+    fetch('/objek/semua')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.querySelector('.objek-list');
+        container.innerHTML = ''; // kosongkan isi sebelumnya
+        data.forEach(objek => {
+          const card = document.createElement('div');
+          card.className = 'objek-card animate-card';
+          card.innerHTML = `
+            <a href="/objek/${objek.id}">
+              <img src="/images/objek/${objek.gambar}" alt="${objek.nama}" class="objek-img">
+            </a>
+            <div class="objek-info">
+              <a href="/objek/${objek.id}" style="text-decoration: none; color: inherit;">
+                <h2 class="objek-nama">${objek.nama}</h2>
+              </a>
+              <p class="objek-kategori">
+                Kategori: ${objek.nama_kategori || 'Tidak diketahui'}
+              </p>
+              <p class="objek-deskripsi">
+                ${objek.deskripsi?.substring(0, 40) || ''}...
+                <a href="/detail/${objek.id}" class="objek-link">selengkapnya</a>
+              </p>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('Gagal memuat semua objek:', err);
+        alert('Terjadi kesalahan saat mengambil data');
+      });
+  });
+</script>
 
 <%- include('partials/footer') %>
 

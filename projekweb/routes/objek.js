@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
   var page = parseInt(req.query.page) || 1;
   var limit = 6;
   var offset = (page - 1) * limit;
+  var tampilkanSemua = req.query.all === 'true';
 
   let countSql = 'SELECT COUNT(*) AS total FROM objek o LEFT JOIN kategori k ON o.kategori_id = k.id';
   let dataSql = 'SELECT o.*, k.nama_kategori FROM objek o LEFT JOIN kategori k ON o.kategori_id = k.id';
@@ -40,9 +41,18 @@ router.get('/', (req, res) => {
 
     var totalItems = countResult[0].total;
     var totalPages = Math.ceil(totalItems / limit);
+    let fullDataSql;
+    let dataParams;
 
-    // Query data objek utama
-    const fullDataSql = dataSql + whereClause + ' ORDER BY o.id DESC LIMIT ? OFFSET ?';
+    if (tampilkanSemua) {
+      fullDataSql = dataSql + whereClause + ' ORDER BY o.id DESC';
+      dataParams = queryParams;
+      page = 1; // reset halaman ke 1
+    } else {
+      fullDataSql = dataSql + whereClause + ' ORDER BY o.id DESC LIMIT ? OFFSET ?';
+      dataParams = [...queryParams, limit, offset];
+    }
+
     db.query(fullDataSql, [...queryParams, limit, offset], (err, objekList) => {
       if (err) {
         console.error('Gagal mengambil data objek:', err);
@@ -87,11 +97,55 @@ router.get('/', (req, res) => {
             totalPages,
             currentPage: page,
             kategoriAktif: kategoriNama,
-            kategoriList
+            kategoriList,
+            tampilkanSemua
           });
         });
       });
     });
+  });
+});
+
+// Route: Data JSON semua objek (untuk AJAX "Tampilkan Semua")
+router.get('/semua', (req, res) => {
+  const sql = `
+    SELECT o.*, k.nama_kategori
+    FROM objek o
+    LEFT JOIN kategori k ON o.kategori_id = k.id
+    ORDER BY o.id DESC
+  `;
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Gagal mengambil semua objek:', err);
+      return res.status(500).json({ error: 'Gagal mengambil data' });
+    }
+    res.json(results);
+  });
+});
+
+// Route: Detail objek berdasarkan ID
+router.get('/:id', (req, res) => {
+  const objekId = req.params.id;
+
+  const sql = `
+    SELECT o.*, k.nama_kategori 
+    FROM objek o 
+    LEFT JOIN kategori k ON o.kategori_id = k.id 
+    WHERE o.id = ?
+  `;
+
+  db.query(sql, [objekId], (err, results) => {
+    if (err) {
+      console.error('Gagal mengambil detail objek:', err);
+      return res.status(500).send('Gagal memuat detail objek');
+    }
+
+    if (results.length === 0) {
+      return res.status(404).render('error', { message: 'Objek tidak ditemukan' });
+    }
+
+    const objek = results[0];
+    res.render('detail', { objek });
   });
 });
 

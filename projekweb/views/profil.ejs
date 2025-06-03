@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami | MeduroPride</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #222;
+            background: linear-gradient(135deg, #e1f0f7, #d1f4ec);
+            scroll-behavior: smooth;
+        }
+
+        header.header-parallax {
+            background: url('/images/header-bg.jpg') no-repeat center/cover;
+            height: 320px;
+            position: relative;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header-parallax::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 60, 50, 0.6);
+            z-index: 1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeSlideDown 1.5s ease forwards;
+        }
+
+        .header-content h1 {
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+            margin: 0;
+            font-weight: 900;
+            text-shadow: 2px 2px 6px #000;
+        }
+
+        .header-content p {
+            margin-top: 10px;
+            font-size: 1.5rem;
+            font-style: italic;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        /* Section Intro */
+        .section-intro {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #176c4a;
+            text-shadow: 1px 1px 1px #d4f3e1;
+        }
+
+        .section-intro p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* Team Section */
+        .section-team {
+            background: white;
+            padding: 50px 20px 70px;
+            box-shadow: 0 0 15px rgba(30, 60, 50, 0.1);
+            border-radius: 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .section-team h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #144a37;
+            letter-spacing: 1.5px;
+        }
+
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .team-card {
+            background: #e9f7f1;
+            border-radius: 25px;
+            box-shadow: 0 6px 15px rgba(30, 60, 50, 0.15);
+            max-width: 300px;
+            padding: 25px 20px 35px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .team-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-card:hover {
+            box-shadow: 0 12px 25px rgba(20, 90, 60, 0.35);
+            transform: scale(1.07);
+            z-index: 10;
+        }
+
+        .photo-wrapper {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 15px #2a7a52;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .team-card:hover .photo-wrapper {
+            box-shadow: 0 0 30px #47bf7a;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .team-card h3 {
+            margin: 10px 0 5px;
+            font-size: 1.4rem;
+            color: #12432b;
+        }
+
+        .role {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #449c6f;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .team-card p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #356941;
+            margin-bottom: 15px;
+        }
+
+        /* Social links */
+        .social-links a {
+            margin: 0 8px;
+            color: #2f6d3f;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #46ca7a;
+        }
+
+        /* Contact Section */
+        .section-contact {
+            background: linear-gradient(135deg, #a8e6cf, #dcedc1);
+            padding: 40px 20px 60px;
+            max-width: 900px;
+            margin: 50px auto 80px;
+            border-radius: 20px;
+            box-shadow: 0 5px 18px rgba(0, 100, 40, 0.15);
+        }
+
+        .section-contact h2 {
+            color: #0f4d29;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            text-align: center;
+            letter-spacing: 1.2px;
+        }
+
+        .contact-info {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #174929;
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            text-align: center;
+        }
+
+        .map-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #176c4a;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            font-weight: 600;
+            letter-spacing: 1.1px;
+        }
+
+        /* Animasi */
+        @keyframes fadeSlideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('partials/navbar') %>
+
+    <header class="header-parallax">
+        <div class="header-content">
+            <h1>MeduroPride</h1>
+            <p>Mahasiswa Kreatif, Inovatif, Profesional</p>
+        </div>
+    </header>
+
+    <section class="section-intro" id="about-intro">
+        <h2>Visi & Misi Kami</h2>
+        <p>
+            Kami adalah kelompok mahasiswa yang bersemangat menghadirkan solusi digital edukatif yang menarik dan
+            bermanfaat bagi masyarakat luas.
+            <br /><br />
+            <strong>Visi:</strong> Menjadi pionir platform edukasi berbasis teknologi dengan konten berkualitas.
+            <br />
+            <strong>Misi:</strong> Mengembangkan aplikasi yang mudah diakses, interaktif, dan inovatif.
+        </p>
+    </section>
+
+    <section class="section-team" id="team">
+        <h2>Tim Kami</h2>
+        <div class="team-grid">
+            <!-- Member 1 -->
+            <article class="team-card" data-delay="0">
+                <div class="photo-wrapper">
+                    <img src="/images/utama/ainur.jpg" alt="Rizky Ramadhan" />
+                </div>
+                <h3>Ainur Taufikur Rahman</h3>
+                <p class="role">Frontend Developer - Teknik Informatika</p>
+                <p>
+                    Spesialis UI/UX dengan keahlian animasi dan desain yang atraktif.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn Rizky"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:rizky@example.com" aria-label="Email Rizky"><i class="fas fa-envelope"></i></a>
+                </div>
+            </article>
+
+            <!-- Member 2 -->
+            <article class="team-card" data-delay="150">
+                <div class="photo-wrapper">
+                    <img src="/images/utama/yogi.jpg" alt="Siti Mahmudah" />
+                </div>
+                <h3>Dorik PraYogik F</h3>
+                <p class="role">FrontEnd - Sistem Informasi</p>
+                <p>
+                    Ahli merancang pengalaman pengguna yang elegan dan ramah anak.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Behance Siti"><i class="fab fa-behance"></i></a>
+                    <a href="mailto:siti@example.com" aria-label="Email Siti"><i class="fas fa-envelope"></i></a>
+                </div>
+            </article>
+
+            <!-- Member 3 -->
+            <article class="team-card" data-delay="300">
+                <div class="photo-wrapper">
+                    <img src="/images/utama/firman.jpg" alt="Ahmad Fauzi" />
+                </div>
+                <h3>Firmansyah</h3>
+                <p class="role">Backend Developer - Teknik Informatika</p>
+                <p>
+                    Membangun backend yang kuat dan scalable.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub Fauzi"><i class="fab fa-github"></i></a>
+                    <a href="mailto:fauzi@example.com" aria-label="Email Fauzi"><i class="fas fa-envelope"></i></a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section-contact" id="contact">
+        <h2>Kontak & Lokasi</h2>
+        <div class="contact-info">
+            <p><strong>Alamat Kampus:</strong> XVX9+MM4, Area Sawah, Pamolokan, Kec. Kota Sumenep, Kabupaten Sumenep, Jawa Timur 69412</p>
+            <p><strong>Telepon:</strong> +62 823-3898-7003</p>
+            <p><strong>Email:</strong> info@meduropride.ac.id</p>
+            <p><strong>Jam Operasional:</strong> Senin - Jumat, 08:00 - 17:00 WIB</p>
+        </div>
+
+        <div class="map-wrapper">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d27967.535208486832!2d113.87398024272456!3d-7.008694910074602!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sid!2sid!4v1748958263388!5m2!1sid!2sid"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <script>
+        // Smooth fade-in animation when team cards scroll into view
+        document.addEventListener('DOMContentLoaded', () => {
+            const teamCards = document.querySelectorAll('.team-card');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.25
+            });
+
+            teamCards.forEach(card => observer.observe(card));
+
+            // Smooth scrolling for anchor links (optional)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', e => {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(anchor.getAttribute('href'));
+                    if (targetEl) {
+                        targetEl.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

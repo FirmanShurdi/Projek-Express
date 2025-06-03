@@ -15,6 +15,7 @@ var masterRouter = require('./routes/master');
 var objekRouter = require('./routes/objek');
 var detailRouter = require('./routes/detail');
 var kategoriRouter = require('./routes/kategori');
+var profilRouter = require('./routes/profil');
 var app = express();
 
 // view engine setup
@@ -46,7 +47,7 @@ app.use('/master', masterRouter);
 app.use('/objek', objekRouter);
 app.use('/detail', detailRouter);
 app.use('/kategori', kategoriRouter);
-
+app.use('/profil', profilRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

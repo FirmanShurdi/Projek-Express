@@ -60,60 +60,7 @@
 
   </div>
 </div>
-<script>
-  function scrollCarousel(dir) {
-    const carousel = document.getElementById('objek-carousel');
-    const scrollAmount = 300;
-    carousel.scrollBy({ left: dir * scrollAmount, behavior: 'smooth' });
-  }
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.animate-card');
-    cards.forEach((card, index) => {
-      card.style.animationDelay = `${index * 0.1}s`;
-    });
-  });
-</script>
-<script>
-  document.getElementById('tampilkanSemuaBtn').addEventListener('click', () => {
-    fetch('/objek/semua')
-      .then(res => res.json())
-      .then(data => {
-        const container = document.querySelector('.objek-list');
-        container.innerHTML = ''; // kosongkan isi sebelumnya
-        data.forEach(objek => {
-          const card = document.createElement('div');
-          card.className = 'objek-card animate-card';
-          card.innerHTML = `
-            <a href="/objek/${objek.id}">
-              <img src="/images/objek/${objek.gambar}" alt="${objek.nama}" class="objek-img">
-            </a>
-            <div class="objek-info">
-              <a href="/objek/${objek.id}" style="text-decoration: none; color: inherit;">
-                <h2 class="objek-nama">${objek.nama}</h2>
-              </a>
-              <p class="objek-kategori">
-                Kategori: ${objek.nama_kategori || 'Tidak diketahui'}
-              </p>
-              <p class="objek-deskripsi">
-                ${objek.deskripsi?.substring(0, 40) || ''}...
-                <a href="/detail/${objek.id}" class="objek-link">selengkapnya</a>
-              </p>
-            </div>
-          `;
-          container.appendChild(card);
-        });
-      })
-      .catch(err => {
-        console.error('Gagal memuat semua objek:', err);
-        alert('Terjadi kesalahan saat mengambil data');
-      });
-  });
-</script>
-
+<script src="/javascripts/objek.js"></script>
 <%- include('partials/footer') %>
-
 </body>
 </html>

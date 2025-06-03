@@ -64,7 +64,7 @@ body {
 
 .hero-content small {
   font-size: 16px;
-  color: #a83232;
+  color: #000000;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -97,12 +97,12 @@ body {
 }
 
 .btn-primary {
-  background-color: #e63946;
+  background-color: #0dec7d;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #ba2d35;
+  background-color: #00d369;
 }
 
 .btn-secondary {

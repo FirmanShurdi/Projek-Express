@@ -1,7 +1,7 @@
 :root {
-  --primary-color: #4a90e2;
-  --primary-hover: #357ab8;
-  --success-color: #5fa5e1;
+  --primary-color: #00d369;
+  --primary-hover: #009249;
+  --success-color: #00d369;
   --error-color: #dc232c;
   --background-color: #f0f2f5;
   --white: #ffffff;
@@ -22,6 +22,11 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+    background-image: url('/images/utama/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Container utama */
